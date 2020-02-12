@@ -32,6 +32,21 @@ void setColor(unsigned int fg_Color, unsigned int bg_Color)
 	SetConsoleTextAttribute(hStdOut, (bg_Color << 4) | fg_Color);
 }
 
+void fullscreen()
+{
+keybd_event(VK_MENU,0x38,0,0);
+keybd_event(VK_RETURN,0x1c,0,0);
+keybd_event(VK_RETURN,0x1c,KEYEVENTF_KEYUP,0);
+keybd_event(VK_MENU,0x38,KEYEVENTF_KEYUP,0);
+}
+
+
+void gotoxy ( int x, int y )
+{
+    COORD dwCursorPosition = { x, y };
+    SetConsoleCursorPosition ( GetStdHandle ( STD_OUTPUT_HANDLE ), dwCursorPosition );
+}
+
 void con_def_Color(void)
 {
 	HANDLE hStdOut;
@@ -125,20 +140,7 @@ void animateTxt(char text[]){
 	}
 }
 
-void fullscreen()
-{
-keybd_event(VK_MENU,0x38,0,0);
-keybd_event(VK_RETURN,0x1c,0,0);
-keybd_event(VK_RETURN,0x1c,KEYEVENTF_KEYUP,0);
-keybd_event(VK_MENU,0x38,KEYEVENTF_KEYUP,0);
-}
 
-
-void gotoxy ( int x, int y )
-{
-    COORD dwCursorPosition = { x, y };
-    SetConsoleCursorPosition ( GetStdHandle ( STD_OUTPUT_HANDLE ), dwCursorPosition );
-}
 
 void con_wait_key(void)
 {
