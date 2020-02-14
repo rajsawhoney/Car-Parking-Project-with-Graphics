@@ -30,7 +30,7 @@ int main()
 			cout << "________________________________________________________________________" << endl;
 		}
 		setColor(green,black);
-    	cout << "\n\t\tEnter your choice here==\t";
+    		cout << "\n\t\tEnter your choice here==\t";
 		setColor(white,black);
 		cin >> option1;
 		switch (option1)
